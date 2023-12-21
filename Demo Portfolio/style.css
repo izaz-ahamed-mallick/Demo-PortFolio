@@ -1,0 +1,370 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gilroy";
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+
+:root {
+  --primary-color: #fff;
+  --secondary-color:#000 ;
+  --linear: linear-gradient(#eefff9 0%, #ffccc1 49%, #dcdbff 100%);
+  --layer:linear-gradient(transparent,#fff);
+  --animeLayer:linear-gradient(#000, #000);
+  --btnColor:#000;
+  --imgBg:#fff;
+ 
+
+}
+.darkTheme{
+ --linear: linear-gradient(115deg, rgb(0, 0, 0) 5.8%, rgb(178, 14, 14) 112.6%);
+  --primary-color: #000;
+  --animeLayer:linear-gradient(#fff, #fff);
+  --secondary-color: #fff;
+  --btnColor:#000;
+  --imgBg:#fff;
+}
+
+#theme{
+  color: #000;
+  font-size: 2vw;
+  cursor: pointer;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+.nav-btn #menuIcon {
+  font-size: 8vw;
+  display: none;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2vh 9vw;
+  border-bottom: 1px solid var(--secondary-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.logo img {
+  width: 15vw;
+  color: var(--secondary-color);
+}
+
+#nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3vw;
+ 
+}
+#nav-list li a {
+  font-weight: 600;
+  padding-bottom: 2px;
+
+  transition: all 0.2s;
+  position: relative;
+  color: var(--secondary-color);
+  
+}
+#nav-list li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.2s;
+  display: block;
+}
+.active,
+#nav-list li:hover::after {
+  width: 100%;
+}
+.nav-btn button {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  gap: 1.1vw;
+  background-color: var(--btnColor);
+  border: none;
+  outline: none;
+  color:var(--imgBg);
+  padding: 1vw 2vw;
+  border-radius: 5vw;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+.nav-btn button:hover {
+  cursor: pointer;
+  background-color: #000000d4;
+  color: #fff;
+  border: 1px solid #000;
+  scale: 1.1;
+}
+.nav-btn button img {
+  width: 1vw;
+  color: var(--primary-color);
+}
+.header {
+  padding: 0 9vw;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  flex-direction: column;
+  background:var(--linear);
+}
+.heading-text h1 {
+  font-size: 9vw;
+  line-height: 9vw;
+}
+.heading-text h1 span {
+  background: var(--animeLayer);
+  background-repeat: no-repeat;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  background-size: 0%;
+}
+
+/****Animation****/
+
+.heading-text h1 span:first-child {
+  animation: textcolor1 2s linear infinite alternate;
+}
+.heading-text h1 span:last-child {
+  animation: textcolor2 2s linear infinite alternate;
+}
+@keyframes textcolor1 {
+  0% {
+    background-size: 0%;
+  }
+  40% {
+    background-size: 100%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+@keyframes textcolor2 {
+  0% {
+    background-size: 0%;
+  }
+  40% {
+    background-size: 0%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5vw;
+  margin-top: 2.5vw;
+}
+#darkbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  background-color: var(--btnColor);
+  color: #fff;
+  border: none;
+  outline: none;
+  padding: 1vw 2vw;
+  border-radius: 5vw;
+  font-size: 1.3vw;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+#darkbtn img {
+  width: 2vw;
+  border-radius: 50%;
+    background-color: var(--imgBg); 
+ 
+}
+
+#darkbtn:hover {
+  cursor: pointer;
+  background-color: #000000d4;
+  color: #fff;
+
+  scale: 1.1;
+}
+
+#lightbtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5vw;
+  background-color: transparent;
+  color:  var(--secondary-color);
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  font-size: 1.3vw;
+  font-weight: 600;
+
+  border-bottom: 1px solid transparent;
+}
+
+#lightbtn img {
+  width: 1.5vw;
+  transition: all 0.2s;
+
+}
+#lightbtn::after {
+  content: "";
+  width: 70%;
+  height: 2px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: all 0.2s;
+}
+#lightbtn:hover#lightbtn::after {
+  width: 100%;
+}
+#lightbtn:hover#lightbtn img {
+  transform: translateY(-0.5vw);
+}
+
+#desc {
+  font-size: 2vw;
+  font-weight: 600;
+  margin-top: 2vw;
+  color: var(--secondary-color);
+}
+
+#userImg {
+  position: absolute;
+
+  right: 13%;
+  bottom: 0;
+
+  width: 80%;
+  max-width: 400px;
+}
+.show-list {
+  max-height: 60px;
+}
+
+/* Media-query */
+
+@media only screen and (max-width: 600px) {
+  .logo img {
+    width: 40vw;
+  }
+
+  nav ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    background: var(--primary-color);
+
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+
+  #nav-list li {
+    font-weight: 500;
+    margin: 3vw;
+  }
+  #nav-list li::after {
+    background-color: var(--secondary-color);
+  }
+  .nav-btn button {
+    display: none;
+  }
+  .nav-btn i {
+    display: block;
+  }
+
+  /* header */
+  .header {
+    padding: 0;
+
+    height: auto;
+  }
+  #userImg {
+    width: 100%;
+   
+    position: relative;
+    right: auto;
+    margin-top: 8vw;
+  }
+
+  .header-content {
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    bottom: 10%;
+   
+    z-index: 99;
+    padding: 0 10%;
+    padding-bottom: 5vh;
+    background: var(--layer);
+   
+  }
+
+  .button-container {
+    margin-top: 3vw;
+    gap: 2vw;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #darkbtn {
+    gap: 2vw;
+
+    padding: 2.5vw 5vw;
+
+    font-size: 3.3vw;
+    font-weight: 600;
+  }
+  #darkbtn img {
+    width: 5vw;
+  }
+
+  
+
+  #lightbtn {
+    gap: 0.5vw;
+
+    font-size: 4vw;
+    font-weight: 600;
+  }
+  #lightbtn img {
+    width: 4vw;
+  }
+#desc{
+  font-size: 4vw;
+}
+
+a {
+  color: var(--secondary-color);
+}
+}
